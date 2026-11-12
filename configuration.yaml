@@ -1,0 +1,19 @@
+default_config:
+
+# Base de datos: Postgres en vez de SQLite
+recorder:
+  db_url: postgresql://ha:ha@postgres:5432/homeassistant
+
+# Sensores que llegan por MQTT desde el simulador
+mqtt:
+  sensor:
+    - name: "Cava temperatura"
+      state_topic: "cava/temperatura"
+      unit_of_measurement: "°C"
+      device_class: temperature
+    - name: "Cava humedad"
+      state_topic: "cava/humedad"
+      unit_of_measurement: "%"
+      device_class: humidity
+
+automation: !include automations.yaml
